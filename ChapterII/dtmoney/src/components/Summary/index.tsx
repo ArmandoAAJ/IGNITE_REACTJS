@@ -24,7 +24,7 @@ const Summary: React.FC = () => {
       </div>
       <div className="total">
         <header>
-          <p> -Total</p>
+          <p>Total</p>
           <img src={totalImg} alt="Total" />
         </header>
         <strong>1,000.00</strong>

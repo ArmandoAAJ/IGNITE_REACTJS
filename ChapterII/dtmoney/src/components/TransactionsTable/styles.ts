@@ -27,10 +27,10 @@ export const Container = styled.header`
         color: var(--text-title);
       }
 
-      &.deposit{
+      &.deposit {
         color: var(--green);
       }
-      &.witdraw{
+      &.witdraw {
         color: var(--red);
       }
     }
