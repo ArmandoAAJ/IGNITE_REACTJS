@@ -23,9 +23,9 @@ createServer({
         {
           id: 2,
           title: "Criador de Sites",
-          type: "deposit",
+          type: "withdraw",
           category: "Dev",
-          amount: 6000,
+          amount: 2000,
           createdAt: new Date("2021/02/20 09:00:00"),
         },
       ],

@@ -30,7 +30,7 @@ export const Container = styled.header`
       &.deposit {
         color: var(--green);
       }
-      &.witdraw {
+      &.withdraw {
         color: var(--red);
       }
     }
