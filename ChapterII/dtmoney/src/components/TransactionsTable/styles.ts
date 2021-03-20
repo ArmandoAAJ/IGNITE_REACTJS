@@ -27,10 +27,10 @@ export const Container = styled.header`
         color: var(--text-title);
       }
 
-      &.deposit {
+      &.income {
         color: var(--green);
       }
-      &.withdraw {
+      &.outcome {
         color: var(--red);
       }
     }

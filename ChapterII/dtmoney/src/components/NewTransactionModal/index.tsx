@@ -35,6 +35,10 @@ export function NewTransactionModal({
       category,
     });
 
+    setAmount(0);
+    setCategory("");
+    setTitle("");
+    setType("income");
     onRequestClose();
   }
 

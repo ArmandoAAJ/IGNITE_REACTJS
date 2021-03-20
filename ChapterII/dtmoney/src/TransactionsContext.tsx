@@ -5,7 +5,7 @@ interface Transaction {
   id: number;
   title: string;
   amount: number;
-  type: string
+  type: string;
   category: string;
   createdAt: string;
 }
@@ -34,8 +34,14 @@ export function TransactionProvider({ children }: TransactionProviderProps) {
       .then((response) => setTransactions(response.data.transactions));
   }, []);
 
-  async function createTransaction(transaction: TransactionInput) {
-    await api.post("/transactions", transaction);
+  async function createTransaction(transactionInput: TransactionInput) {
+    const response = await api.post("/transactions", {
+      ...transactionInput,
+      createdAt: new Date("2021-02-12T09:00:00"),
+    });
+
+    const { transaction } = response.data;
+    setTransactions([...transactions, transaction]);
   }
 
   return (
