@@ -37,7 +37,7 @@ export function TransactionProvider({ children }: TransactionProviderProps) {
   async function createTransaction(transactionInput: TransactionInput) {
     const response = await api.post("/transactions", {
       ...transactionInput,
-      createdAt: new Date("2021-02-12T09:00:00"),
+      createdAt: new Date(),
     });
 
     const { transaction } = response.data;

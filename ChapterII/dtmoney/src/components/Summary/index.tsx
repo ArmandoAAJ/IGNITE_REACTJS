@@ -9,6 +9,24 @@ import { Container } from "./styles";
 const Summary: React.FC = () => {
   const { transactions } = useContext(TransactionsContext);
 
+  const sumary = transactions.reduce(
+    (acc, transaction) => {
+      if (transaction.type === "income") {
+        acc.income += transaction.amount;
+        acc.totals += transaction.amount;
+      } else {
+        acc.outcome += transaction.amount;
+        acc.totals -= transaction.amount;
+      }
+      return acc;
+    },
+    {
+      income: 0,
+      totals: 0,
+      outcome: 0,
+    }
+  );
+
   return (
     <Container>
       <div>
@@ -16,21 +34,21 @@ const Summary: React.FC = () => {
           <p>Entradas</p>
           <img src={incomeImg} alt="Entradas" />
         </header>
-        <strong>1,000.00</strong>
+        <strong>R$ {sumary.income}</strong>
       </div>
       <div>
         <header>
           <p>Saídas</p>
           <img src={outcomeImg} alt="Saídas" />
         </header>
-        <strong>1,000.00</strong>
+        <strong>R$ -{sumary.outcome}</strong>
       </div>
       <div className="total">
         <header>
           <p>Total</p>
           <img src={totalImg} alt="Total" />
         </header>
-        <strong>1,000.00</strong>
+        <strong>R$ {sumary.totals}</strong>
       </div>
     </Container>
   );
