@@ -38,11 +38,13 @@ Essa será uma aplicação onde o seu principal objetivo é criar um hook de 
 - Exibição de mensagens de erro;
 - Entre outros.
 
-
 ## :rocket: como deve ficar a aplicação
 
-<video playsinline="" controls="" preload="metadata" src="https://s3.us-west-2.amazonaws.com/secure.notion-static.com/f166455c-a42f-4d25-8baa-a6686a3cb476/challenge.mp4?X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAT73L2G45O3KS52Y5%2F20210325%2Fus-west-2%2Fs3%2Faws4_request&amp;X-Amz-Date=20210325T142121Z&amp;X-Amz-Expires=86400&amp;X-Amz-Signature=c2e6d40435a647874d0aed9cc573f9ad796641e24d825d770544409dee4914a2&amp;X-Amz-SignedHeaders=host" style="display: block; width: 100%; pointer-events: none; background-color: rgb(242, 241, 238);"></video>
-
+<video>
+  <source 
+  src="./src/assets/videos/final.mp4" 
+  type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+</video>
 
 ## :memo: Licença
 
@@ -50,4 +52,5 @@ Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](../LICENSE) para
 
 ---
 
-Feito com 💜 by Rocketseat :wave: [Entre na nossa comunidade!](https://discordapp.com/invite/gCRAFhc)
+Desenvolvido por: 
+Armando A Joergensen 
