@@ -14,7 +14,6 @@ Essa será uma aplicação onde o seu principal objetivo é criar um hook de 
 - Cálculo dos preços sub-total e total do carrinho;
 - Validação de estoque;
 - Exibição de mensagens de erro;
-<<<<<<< HEAD
 - Entre outros;
 
 ## :rocket:Tecnologias usadas
