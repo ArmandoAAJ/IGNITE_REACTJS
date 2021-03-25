@@ -2,8 +2,6 @@
   Desafio 02 -  Criando um hook de carrinho de compras
 </h3>
 
-<blockquote align="center">“Não espere resultados brilhantes se suas metas não forem claras”!</blockquote>
-
 ## :rocket: Sobre o desafio
 
 Nesse desafio, você deverá criar uma aplicação para treinar o que aprendeu até agora no ReactJS
@@ -18,10 +16,18 @@ Essa será uma aplicação onde o seu principal objetivo é criar um hook de 
 - Exibição de mensagens de erro;
 - Entre outros.
 
-## :rocket: como deve ficar a aplicação
+## :rocket:Tecnologias usadas
 
-<img src="./src/assets/images/hooksToCart.gif" width="40" height="40" />
+- ReactJS;
+- TypeScript;
+- Styled Components
+
+## :rocket: Resultado final
+<p align="center">
+<img src="./src/assets/images/final.gif" width="800" height="400" />
+</p>
 
 ## :memo: Desenvolvido por
 
-Armando Arlan Joergensen 
+Armando Arlan Joergensen <p></p>
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/armandoaaj/)](https://www.linkedin.com/in/armandoaaj/)
