@@ -12,10 +12,6 @@ interface UpdateProductAmount {
   amount: number;
 }
 
-interface DecrementProductAmount {
-  productId: number;
-  amount: number;
-}
 
 interface CartContextData {
   cart: Product[];
