@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 import Food from "../../components/Food/index";
 import Header from "../../components/Header/index";
-import ModalAddFood from "../../components/ModalAddFood/index";
+import { ModalAddFood } from "../../components/ModalAddFood/index";
 import ModalEditFood from "../../components/ModalEditFood/index";
 
 import api from "../../services/api";
@@ -36,7 +36,8 @@ const Dashboard = (): JSX.Element => {
     setEditModalOpen(!editModalOpen);
   };
 
-  const handleAddFood = async (food: FoodInterface) => {
+  async function handleAddFood(food: FoodInterface) {
+    console.log(food);
     try {
       const response = await api.post("/foods", {
         ...food,
@@ -44,46 +45,47 @@ const Dashboard = (): JSX.Element => {
       });
       setFoods([...foods, response.data]);
     } catch (error) {}
-  };
+  }
 
-  const handleDeleteFood = async (id: number) => {
+  async function handleDeleteFood(id: number) {
     await api.delete(`/foods/${id}`);
 
     const foodsFiltered = foods.filter((food) => food.id !== id);
 
     setFoods(foodsFiltered);
-  };
+  }
 
   const handleEditFood = (food: FoodInterface) => {
+    console.log(`asdhsaiuduasd`,food);
     setEditingFood(food);
     setModalOpen(true);
   };
 
- const toggleModal = () => {
-    setModalOpen(!modalOpen );
-  }
+  const toggleModal = () => {
+    setModalOpen(!modalOpen);
+  };
 
   const handleUpdateFood = async (food: FoodInterface) => {
     if (!editingFood) return;
     try {
-      const foodUpdated = await api.put(
-        `/foods/${editingFood.id}`,
-        { ...editingFood, ...food },
-      );
+      const foodUpdated = await api.put(`/foods/${editingFood.id}`, {
+        ...editingFood,
+        ...food,
+      });
 
-      const foodsUpdated = foods.map(f =>
-        f.id !== foodUpdated.data.id ? f : foodUpdated.data,
+      const foodsUpdated = foods.map((f) =>
+        f.id !== foodUpdated.data.id ? f : foodUpdated.data
       );
 
       setFoods(foodsUpdated);
     } catch (err) {
       console.log(err);
     }
-  }
+  };
 
   return (
     <>
-      <Header />
+      <Header openModal={toggleModal} />
       <ModalAddFood
         isOpen={modalOpen}
         setIsOpen={toggleModal}
@@ -95,17 +97,17 @@ const Dashboard = (): JSX.Element => {
         editingFood={editingFood}
         handleUpdateFood={handleUpdateFood}
       />
-        <FoodsContainer data-testid="foods-list">
-          {foods &&
-            foods.map((food) => (
-              <Food
-                key={food.id}
-                food={food}
-                handleDelete={() => handleDeleteFood(food.id)}
-                handleEditFood={() => handleEditFood(food)}
-              />
-            ))}
-        </FoodsContainer>
+      <FoodsContainer data-testid="foods-list">
+        {foods &&
+          foods.map((food) => (
+            <Food
+              key={food.id}
+              food={food}
+              handleDelete={() => handleDeleteFood(food.id)}
+              handleEditFood={() => handleEditFood(food)}
+            />
+          ))}
+      </FoodsContainer>
     </>
   );
 };
