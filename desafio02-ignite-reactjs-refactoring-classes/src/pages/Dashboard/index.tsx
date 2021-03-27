@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Food from "../../components/Food/index";
-import Header from "../../components/Header/index";
+import { Header } from "../../components/Header/index";
 import { ModalAddFood } from "../../components/ModalAddFood/index";
 import ModalEditFood from "../../components/ModalEditFood/index";
 
@@ -56,7 +56,7 @@ const Dashboard = (): JSX.Element => {
   }
 
   const handleEditFood = (food: FoodInterface) => {
-    console.log(`asdhsaiuduasd`,food);
+    console.log(`asdhsaiuduasd`, food);
     setEditingFood(food);
     setModalOpen(true);
   };
