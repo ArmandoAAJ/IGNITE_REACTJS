@@ -18,7 +18,7 @@ interface FoodInterface {
   image: string;
 }
 
-const Dashboard = (): JSX.Element => {
+export const Dashboard = (): JSX.Element => {
   const [foods, setFoods] = useState<FoodInterface[]>([]);
   const [editingFood, setEditingFood] = useState<FoodInterface>();
   const [modalOpen, setModalOpen] = useState(false);
@@ -56,9 +56,8 @@ const Dashboard = (): JSX.Element => {
   }
 
   const handleEditFood = (food: FoodInterface) => {
-    console.log(`asdhsaiuduasd`, food);
     setEditingFood(food);
-    setModalOpen(true);
+    setEditModalOpen(true);
   };
 
   const toggleModal = () => {
@@ -111,5 +110,3 @@ const Dashboard = (): JSX.Element => {
     </>
   );
 };
-
-export default Dashboard;
