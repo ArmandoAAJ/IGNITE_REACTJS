@@ -1,5 +1,4 @@
-<img src="./src/assets/result.gif" width="100%" height="400" />
-
+<img src="ignite.png" width="100%" height="400" />
 
 ## :rocket: Sobre
 
@@ -22,4 +21,3 @@ Para conhecer um pouco mais sobre a Rocketseat, acompanhe-nos nas redes sociais:
 - [Twitter](https://twitter.com/rocketseat)
 - [Instagram](https://www.instagram.com/rocketseat_oficial)
 - [Linkedin](https://www.linkedin.com/company/rocketseat)
-  [Para participar da comunidade basta clicar aqui.](https://app.rocketseat.com.br/dashboard)
