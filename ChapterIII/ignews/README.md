@@ -1,17 +1,17 @@
 <h1 align="center">
-  <img alt="ig.news" title="ig.news" src="public/ig-news.png" />
+  <img alt="ig.news" title="ig.news" width="200px"  src="public/images/logo.svg" />
 </h1>
 
 <h3 align="center">
   Stay informed about the ReactJS world
 </h3>
 
-<p align="center">
+<!-- <p align="center">
   <a href="https://www.linkedin.com/in/eliasgcf/"><img alt="Made by" src="https://img.shields.io/badge/made%20by-Elias%20Gabriel-%23EBA417"></a>
   <img alt="Repository size" src="https://img.shields.io/github/repo-size/EliasGcf/ig.news?color=%23EBA417">
   <a href="https://github.com/EliasGcf/ig.news/commits/master"><img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/EliasGcf/ig.news?color=%23EBA417"></a>
   <img alt="GitHub" src="https://img.shields.io/github/license/EliasGcf/ig.news?color=%23EBA417">
-</p>
+</p> -->
 
 <p align="center">
   <a href="#-about-the-project">About the project</a> •
@@ -21,7 +21,7 @@
 </p>
 
 <p align="center">
-  <img alt="ig.news" src=".github/ig-news.png" width="100%">
+  <img alt="ig.news" src="public/ig-news.png" width="100%">
 </p>
 
 ## 👩‍💻 About the project
