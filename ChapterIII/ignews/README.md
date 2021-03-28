@@ -1,5 +1,5 @@
 <h1 align="center">
-  <img alt="ig.news" title="ig.news" width="200px"  src=".github/logo.svg" />
+  <img alt="ig.news" title="ig.news" width="200px"  src=".public/images/ig-news.png" />
 </h1>
 
 <h3 align="center">
