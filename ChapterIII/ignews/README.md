@@ -74,5 +74,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ---
 
 <p align="center">
-  Made with 💜&nbsp; by <a href="https://www.linkedin.com/in/eliasgcf/">Elias Gabriel</a>
+  Made with 💜&nbsp; by <a href="https://www.linkedin.com/in/armandoaaj/">Armando Joergensen</a>
 </p>
