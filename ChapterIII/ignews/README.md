@@ -21,7 +21,7 @@
 
 Ig.news projeto criando durante o treinamento da Rocketseat Ignite trilha ReactJS.
 
-O projeto consisteem cadastrar post e posterirmente usuários autenticados e que possuem uma assinatura ativa possam ler os posts completos. 
+O projeto consisteem cadastrar post e posterirmente usuários autenticados e que possuem uma assinatura ativa possam ler os posts completos.
 
 ## 🚀 Tecnologias usadas
 
@@ -62,6 +62,6 @@ $ yarn dev
 
 ## 📝 Desenvolvido por
 
-<p align="center">
-  Desenvolvido por <a href="https://www.linkedin.com/in/armandoaaj/">Armando Joergensen</a>
-</p>
+Armando Arlan Joergensen <p></p>
+[![Linkedin Badge](https://img.shields.io/badge/-LinkedIn-blue?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/armandoaaj/)](https://www.linkedin.com/in/armandoaaj/)
+
