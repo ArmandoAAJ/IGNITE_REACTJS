@@ -14,23 +14,16 @@
 </p> -->
 
 <p align="center">
-  <a href="#-about-the-project">About the project</a> •
-  <a href="#-technologies">Technologies</a> •
-  <a href="#-getting-started">Getting started</a> •
-  <a href="#-license">License</a>
-</p>
-
-<p align="center">
   <img alt="ig.news" src="public/ig-news.png" width="100%">
 </p>
 
-## 👩‍💻 About the project
+## 👩‍💻 Sobre o projeto
 
-[Ig.news](https://ignews.vercel.app/) is a project created in [Rocketseat](https://rocketseat.com.br/) Ignite ReactJS training.
+Ig.news projeto criando durante o treinamento da Rocketseat Ignite trilha ReactJS.
 
-In this project you can subscribe to read posts about the ReactJS world.
+O projeto consisteem cadastrar post e posterirmente usuários autenticados e que possuem uma assinatura ativa possam ler os posts completos. 
 
-## 🚀 Technologies
+## 🚀 Tecnologias usadas
 
 - [Next.js](https://nextjs.org/)
 - [ReactJS](https://reactjs.org/)
@@ -40,9 +33,9 @@ In this project you can subscribe to read posts about the ReactJS world.
 - [Faunadb](https://fauna.com/)
 - [SASS](https://sass-lang.com/)
 
-## 💻 Getting started
+## 💻 Iniciando o projeto
 
-### Requirements
+### Necessário
 
 - [Node.js](https://nodejs.org/en/)
 - [Yarn](https://classic.yarnpkg.com/) or [NPM](https://www.npmjs.com/) _(examples are with yarn)_
@@ -50,7 +43,7 @@ In this project you can subscribe to read posts about the ReactJS world.
 **Clone the project and access the folder**
 
 ```bash
-$ git clone https://github.com/EliasGcf/ig.news.git && cd ig.news
+$ git clone https://github.com/ArmandoAAJ/IGNITE_REACTJS.git && cd ig.news
 ```
 
 **Follow the steps below**
@@ -67,12 +60,8 @@ $ cp .env.example .env
 $ yarn dev
 ```
 
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
+## 📝 Desenvolvido por
 
 <p align="center">
-  Made with 💜&nbsp; by <a href="https://www.linkedin.com/in/armandoaaj/">Armando Joergensen</a>
+  Desenvolvido por <a href="https://www.linkedin.com/in/armandoaaj/">Armando Joergensen</a>
 </p>
