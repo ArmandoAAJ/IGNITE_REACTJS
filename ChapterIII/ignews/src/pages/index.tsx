@@ -36,13 +36,13 @@ export default function Home({ product }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  const price = await stripe.prices.retrieve("price_1IZorpJz6zbF4tRsGhpzuWeB");
+  const price = await stripe.prices.retrieve("price_1IbulTBU9UY8YIkW3mKTYknN");
 
   const product = {
     priceId: price.id,
-    amount: new Intl.NumberFormat("en-US", {
+    amount: new Intl.NumberFormat("ept-BR", {
       style: "currency",
-      currency: "USD",
+      currency: "BRL",
     }).format(price.unit_amount / 100),
   };
 
@@ -50,6 +50,6 @@ export const getStaticProps: GetStaticProps = async () => {
     props: {
       product,
     },
-    revalidate: 60 * 60 * 24, // 24 hours
+    revalidate: 60 * 60 * 24, // 24 horas
   };
 };

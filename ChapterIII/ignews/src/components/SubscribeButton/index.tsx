@@ -20,21 +20,24 @@ export function SubscribeButton({ priceId }: SubscribeButtonProps) {
       return;
     }
 
-    // if (session.activeSubscription) {
-    //   router.push("/posts");
-    //   return;
-    // }
+    if (session.activeSubscription) {
+      router.push('/posts');
+      return;
+    }
 
+  
     try {
       const response = await api.post("/subscribe");
 
       const { sessionId } = response.data;
 
+      console.log(sessionId);
+
       const stripe = await getStripeJs();
 
       await stripe.redirectToCheckout({ sessionId });
     } catch (err) {
-      alert(err.message);
+      alert(`erro ao fazer o checkout, ${err.message}`);
     }
   }
 
