@@ -1,9 +1,15 @@
 import { useState } from 'react';
-import { GetStaticProps } from 'next';
-import { FiUser, FiCalendar } from 'react-icons/fi';
 
-import { RichText } from 'prismic-dom';
+import { GetStaticProps } from 'next';
+import Link from 'next/link';
+
+import { FiCalendar, FiUser } from 'react-icons/fi';
+
+import { format } from 'date-fns';
+import ptBR from 'date-fns/locale/pt-BR';
+
 import Prismic from '@prismicio/client';
+
 import { getPrismicClient } from '../services/prismic';
 
 import commonStyles from '../styles/common.module.scss';
@@ -32,32 +38,26 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
   const [posts, setPosts] = useState(postsPagination.results);
   const [postsNextPage, setPostsNextPage] = useState(postsPagination.next_page);
 
-  const handleNewPage = async () => {
+  const handleNewPage = async (): Promise<void> => {
     if (!postsNextPage) return;
 
     const postsResponse = await fetch(
       postsPagination.next_page
     ).then(response => response.json());
 
-    const results = postsResponse.results.map(post => {
+    const morePosts = postsResponse.results.map(post => {
       return {
         uid: post.uid,
-        first_publication_date: new Date(
-          post.last_publication_date
-        ).toLocaleDateString('pt-BR', {
-          day: '2-digit',
-          month: 'long',
-          year: 'numeric',
-        }),
+        first_publication_date: post.first_publication_date,
         data: {
-          title: RichText.asText(post.data.title),
-          subtitle: RichText.asText(post.data.subtitle),
-          author: RichText.asText(post.data.author),
+          title: post.data.title,
+          subtitle: post.data.subtitle,
+          author: post.data.author,
         },
       };
     });
 
-    setPosts([...posts, ...results]);
+    setPosts([...posts, ...morePosts]);
     setPostsNextPage(postsResponse.next_page);
   };
 
@@ -70,16 +70,26 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
       </div>
       <div className={styles.content}>
         {posts.map(post => (
-          <a href="/" key={post.uid}>
-            <strong>{post.data.title}</strong>
-            <p>{post.data.subtitle}</p>
-            <div>
-              <FiCalendar />
-              <time>{post.first_publication_date}</time>
-              <FiUser style={{ marginLeft: 31 }} />
-              <time>{post.data.author}</time>
-            </div>
-          </a>
+          <Link href={`/post/${post.uid}`}>
+            <a href="/" key={post.uid}>
+              <strong>{post.data.title}</strong>
+              <p>{post.data.subtitle}</p>
+              <div>
+                <FiCalendar />
+                <time>
+                  {format(
+                    new Date(post.first_publication_date),
+                    'dd MMM yyyy',
+                    {
+                      locale: ptBR,
+                    }
+                  )}
+                </time>
+                <FiUser style={{ marginLeft: 31 }} />
+                <time>{post.data.author}</time>
+              </div>
+            </a>
+          </Link>
         ))}
         {postsNextPage && (
           <button type="button" onClick={handleNewPage}>
@@ -93,25 +103,23 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
 
 export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
+
   const postsResponse = await prismic.query(
-    [Prismic.predicates.at('document.type', 'post')],
-    { fetch: ['post.title', 'post.author', 'post.subtitle'], pageSize: 1 }
+    [Prismic.predicates.at('document.type', 'posts')],
+    {
+      fetch: ['posts.title', 'posts.subtitle', 'posts.author'],
+      orderings: '[document.first_publication_date desc]',
+    }
   );
 
   const results = postsResponse.results.map(post => {
     return {
       uid: post.uid,
-      first_publication_date: new Date(
-        post.last_publication_date
-      ).toLocaleDateString('pt-BR', {
-        day: '2-digit',
-        month: 'long',
-        year: 'numeric',
-      }),
+      first_publication_date: post.first_publication_date,
       data: {
-        title: RichText.asText(post.data.title),
-        subtitle: RichText.asText(post.data.subtitle),
-        author: RichText.asText(post.data.author),
+        title: post.data.title,
+        subtitle: post.data.subtitle,
+        author: post.data.author,
       },
     };
   });
