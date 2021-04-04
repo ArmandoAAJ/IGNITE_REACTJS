@@ -32,6 +32,10 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
   const [posts, setPosts] = useState(postsPagination.results);
   const [postsNextPage, setPostsNextPage] = useState(postsPagination.next_page);
 
+  const handleNewPage = () => {
+    console.log('clicou');
+  };
+
   return (
     <main className={commonStyles.contentContainer}>
       <div className={styles.logo}>
@@ -52,6 +56,9 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
             </div>
           </a>
         ))}
+        <button type="button" onClick={handleNewPage}>
+          Carregar mais posts
+        </button>
       </div>
     </main>
   );
