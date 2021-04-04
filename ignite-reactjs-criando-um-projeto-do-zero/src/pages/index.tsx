@@ -32,8 +32,33 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
   const [posts, setPosts] = useState(postsPagination.results);
   const [postsNextPage, setPostsNextPage] = useState(postsPagination.next_page);
 
-  const handleNewPage = () => {
-    console.log('clicou');
+  const handleNewPage = async () => {
+    if (!postsNextPage) return;
+
+    const postsResponse = await fetch(
+      postsPagination.next_page
+    ).then(response => response.json());
+
+    const results = postsResponse.results.map(post => {
+      return {
+        uid: post.uid,
+        first_publication_date: new Date(
+          post.last_publication_date
+        ).toLocaleDateString('pt-BR', {
+          day: '2-digit',
+          month: 'long',
+          year: 'numeric',
+        }),
+        data: {
+          title: RichText.asText(post.data.title),
+          subtitle: RichText.asText(post.data.subtitle),
+          author: RichText.asText(post.data.author),
+        },
+      };
+    });
+
+    setPosts([...posts, ...results]);
+    setPostsNextPage(postsResponse.next_page);
   };
 
   return (
@@ -56,9 +81,11 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
             </div>
           </a>
         ))}
-        <button type="button" onClick={handleNewPage}>
-          Carregar mais posts
-        </button>
+        {postsNextPage && (
+          <button type="button" onClick={handleNewPage}>
+            Carregar mais posts
+          </button>
+        )}
       </div>
     </main>
   );
