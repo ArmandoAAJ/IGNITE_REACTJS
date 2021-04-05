@@ -1,1 +1,21 @@
-// TODO
+.logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  max-width: 720px;
+  margin: 42px auto;
+  padding: 0 2rem;
+
+  img + img {
+    margin-left: 17px;
+  }
+
+  div {
+    width: 4px;
+    height: 4px;
+    margin-left: 5px;
+    margin-top: 8px;
+    border-radius: 20px;
+    background-color: #ff57b2;
+  }
+}
