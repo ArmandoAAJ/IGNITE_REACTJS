@@ -1,3 +1,4 @@
+/* eslint-disable import/extensions */
 import { AppProps } from 'next/app';
 import '../styles/globals.scss';
 

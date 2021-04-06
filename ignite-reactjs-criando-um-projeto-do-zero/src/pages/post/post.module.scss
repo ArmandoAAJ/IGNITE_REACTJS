@@ -1,1 +1,27 @@
-// TODO
+.banner {
+  width: 1440px;
+  height: 400px;
+}
+
+.content {
+  color: #f8f8f8;
+  font-family: Inter;
+  font-size: 3rem;
+  font-weight: 700;
+  margin-top: 40px;
+}
+
+.info {
+  display: flex;
+  margin-top: 25px;
+
+  time {
+    align-items: center;
+    justify-content: center;
+    font-weight: 400;
+    font-size: 0.875rem;
+    line-height: 17px;
+    color: #bbbbbb;
+    margin-left: 10px;
+  }
+}
