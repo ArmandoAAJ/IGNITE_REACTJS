@@ -1,12 +1,16 @@
+/* eslint-disable no-return-assign */
+/* eslint-disable no-param-reassign */
 /* eslint-disable react/no-danger */
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { RichText } from 'prismic-dom';
 import Prismic from '@prismicio/client';
-import { FiCalendar, FiUser } from 'react-icons/fi';
+import { FiCalendar, FiUser, FiClock } from 'react-icons/fi';
 
-import { format, formatDistance } from 'date-fns';
+import { format } from 'date-fns';
 import ptBR from 'date-fns/locale/pt-BR';
 
+import { useRouter } from 'next/router';
+import Head from 'next/head';
 import Header from '../../components/Header';
 
 import { getPrismicClient } from '../../services/prismic';
@@ -38,9 +42,28 @@ interface PostProps {
 }
 
 export default function Post({ post }: PostProps): JSX.Element {
-  console.log(post);
+  const router = useRouter();
+
+  if (router.isFallback) {
+    return <h1>Carregando...</h1>;
+  }
+  const totalWords = post.data.content.reduce((total, contentItem) => {
+    total += contentItem.heading.split('').length;
+
+    const words = contentItem.body.map(item => item.text.split('').length);
+
+    words.map(word => (total += word));
+
+    return total;
+  }, 0);
+
+  const readTime = Math.ceil(totalWords / 200);
+
   return (
     <>
+      <Head>
+        <title>{`${post.data.title} | space`}</title>
+      </Head>
       <Header />
       <img src={post.data.banner.url} alt="banner" className={styles.banner} />
       <div className={commonStyles.contentContainer}>
@@ -54,18 +77,8 @@ export default function Post({ post }: PostProps): JSX.Element {
           </time>
           <FiUser style={{ marginLeft: 31 }} />
           <time>{post.data.author}</time>
-          <FiUser style={{ marginLeft: 31 }} />
-          {post.last_publication_date && (
-            <time>
-              {formatDistance(
-                new Date(post.last_publication_date),
-                new Date(),
-                {
-                  locale: ptBR,
-                }
-              )}
-            </time>
-          )}
+          <FiClock style={{ marginLeft: 31 }} />
+          {`${readTime} min`}
         </div>
         <main>
           {post?.data?.content?.map(content => (
