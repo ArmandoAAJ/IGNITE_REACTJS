@@ -10,7 +10,6 @@ import ptBR from 'date-fns/locale/pt-BR';
 
 import Prismic from '@prismicio/client';
 
-import { RichText } from 'prismic-dom';
 import { getPrismicClient } from '../services/prismic';
 
 import commonStyles from '../styles/common.module.scss';
@@ -51,9 +50,9 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
         uid: post.uid,
         first_publication_date: post.first_publication_date,
         data: {
-          title: RichText.asText(post.data.title),
-          subtitle: RichText.asText(post.data.subtitle),
-          author: RichText.asText(post.data.author),
+          title: post.data.title,
+          subtitle: post.data.subtitle,
+          author: post.data.author,
         },
       };
     });
@@ -64,7 +63,7 @@ export default function Home({ postsPagination }: HomeProps): JSX.Element {
 
   return (
     <main className={commonStyles.contentContainer}>
-      <div className={styles.logo}>
+      <div className={styles.logo} style={{ marginTop: 80 }}>
         <img src="/logo.png" alt="logo" />
         <img src="/spacetraveling.png" alt="spacetraveling" />
         <div />
@@ -106,7 +105,7 @@ export const getStaticProps: GetStaticProps = async () => {
   const prismic = getPrismicClient();
 
   const postsResponse = await prismic.query(
-    [Prismic.predicates.at('document.type', 'post')],
+    [Prismic.predicates.at('document.type', 'posts')],
     {
       fetch: ['posts.title', 'posts.subtitle', 'posts.author'],
       orderings: '[document.first_publication_date desc]',
@@ -119,9 +118,9 @@ export const getStaticProps: GetStaticProps = async () => {
       uid: post.uid,
       first_publication_date: post.first_publication_date,
       data: {
-        title: RichText.asText(post.data.title),
-        subtitle: RichText.asText(post.data.subtitle),
-        author: RichText.asText(post.data.author),
+        title: post.data.title,
+        subtitle: post.data.subtitle,
+        author: post.data.author,
       },
     };
   });
