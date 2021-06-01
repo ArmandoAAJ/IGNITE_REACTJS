@@ -18,7 +18,7 @@
 <br>
 
 <p align="center">
-  <img alt="Frontend" src="github/gympoint.png" width="100%">
+  <img alt="Frontend" src="github/space.png" width="100%">
 </p>
 
 ## 🚀 Tecnologias
