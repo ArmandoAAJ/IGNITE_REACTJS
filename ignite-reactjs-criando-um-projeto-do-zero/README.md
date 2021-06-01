@@ -1,6 +1,6 @@
 <h1 align="center">
   <img alt="spacetraveling" title="spacetraveling" src="github/favicon.png" width="200px" />
-  <img alt="spacetraveling" title="spacetraveling" src="github/logo.png" width="200px" />
+  <img alt="spacetraveling" title="spacetraveling" src="github/logo.svg" width="200px" />
 </h1>
 
 <h3 align="center">
